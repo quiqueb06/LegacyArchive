@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
+import { ejecutarAccion } from "@/app/acciones";
 
 /** Llama a un endpoint, muestra el error si lo hay y refresca la vista del servidor. */
 export function useAccion() {
@@ -13,8 +14,7 @@ export function useAccion() {
     setError(null);
     setEnviando(true);
     try {
-      const res = await fetch(url, cuerpo instanceof FormData ? { method: "POST", body: cuerpo } : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(cuerpo ?? {}) });
-      const datos = await res.json().catch(() => ({ ok: false, error: "Respuesta inválida del servidor." }));
+      const datos = (await ejecutarAccion(url, cuerpo)) as { ok?: boolean; error?: string } & Record<string, unknown>;
       if (!datos.ok) {
         setError(datos.error ?? "No se pudo completar la acción.");
         return null;

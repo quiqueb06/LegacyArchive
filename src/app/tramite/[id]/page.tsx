@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { BotonDescargar } from "@/components/BotonDescargar";
 import { Download, ExternalLink, Printer, ArrowRight, FileUp } from "lucide-react";
 import { PanelFuentes } from "@/components/PanelFuentes";
 import { FilaDato } from "@/components/FilaDato";
@@ -27,7 +28,7 @@ export default async function PaginaTramite({ params, searchParams }: { params: 
   const { paso: pasoParam } = await searchParams;
   if (!tramite(id)) notFound();
   const datos = evaluar(id);
-  if (!datos) redirect("/");
+  if (!datos) redirect(`/tramite/${id}/inicio`);
   const { proceso, tramite: t, evaluacion: ev } = datos;
   const fuentes = fuentesImportadas();
   const aplicables = ev.requisitos.filter((r) => r.aplica !== false);
@@ -133,7 +134,7 @@ export default async function PaginaTramite({ params, searchParams }: { params: 
                 ))}
               </dl>
               <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-                <a href={`/api/exportar/${t.id}`} className="boton boton-primario"><Download aria-hidden className="size-4" /> Descargar expediente preparado</a>
+                <BotonDescargar tramiteId={t.id} />
                 <Link href={`/tramite/${t.id}/resumen`} className="boton boton-secundario"><Printer aria-hidden className="size-4" /> Resumen imprimible</Link>
               </div>
               {exportacionesDe(proceso.id).length > 0 && <p className="mt-2 text-xs text-tinta-suave">Descargas registradas: {exportacionesDe(proceso.id).length}. Última: {exportacionesDe(proceso.id).at(-1)!.estado}.</p>}
