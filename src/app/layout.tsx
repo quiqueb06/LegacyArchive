@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 boton boton-secundario">Saltar al contenido</a>
         <div className="no-imprimir bg-tinta text-papel text-sm">
           <p className="mx-auto max-w-6xl px-4 py-2">
-            <strong className="font-semibold">Demo con datos sintéticos.</strong> No se conecta con Registro Mercantil, SAT, RENAP ni IGSS. Nada aquí es una inscripción presentada ni aprobada.
+            <strong className="font-semibold">Demo con datos sintéticos.</strong> No se conecta con Registro Mercantil, SAT, RENAP ni IGSS. Nada aquí es una inscripción presentada ni aprobada.{process.env.VERCEL ? " En esta versión en línea los datos no se guardan de forma permanente." : null}
           </p>
         </div>
         <header className="no-imprimir sticky top-0 z-40 border-b border-linea bg-papel/85 backdrop-blur">

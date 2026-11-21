@@ -6,7 +6,10 @@ import path from "node:path";
 let db: DatabaseSync | null = null;
 
 export function rutaDb(): string {
-  return process.env.LEGACYARCHIVE_DB_PATH || path.join(process.cwd(), "data", "legacyarchive.db");
+  if (process.env.LEGACYARCHIVE_DB_PATH) return process.env.LEGACYARCHIVE_DB_PATH;
+  // En Vercel el disco del proyecto es de solo lectura: la base vive en /tmp y no persiste.
+  if (process.env.VERCEL) return "/tmp/lazo/legacyarchive.db";
+  return path.join(process.cwd(), "data", "legacyarchive.db");
 }
 
 export function getDb(): DatabaseSync {
