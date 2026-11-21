@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "@fontsource-variable/public-sans";
 import "./globals.css";
+import { sembrarDemoSiVacio } from "@/server/repo";
 
 export const metadata: Metadata = {
   title: "Lazô · Demo Guatemala",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7efe6" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  sembrarDemoSiVacio();
   return (
     <html lang="es-GT">
       <body className="min-h-dvh">

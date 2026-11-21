@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: [],
   poweredByHeader: false,
   // Las muestras sintéticas se leen del disco en el servidor; incluirlas en el despliegue.
-  outputFileTracingIncludes: { "/api/**/*": ["./muestras/**/*"] },
+  outputFileTracingIncludes: { "/**/*": ["./muestras/**/*"] },
 };
 
 export default nextConfig;

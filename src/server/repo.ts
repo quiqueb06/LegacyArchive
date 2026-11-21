@@ -1,4 +1,6 @@
 import "server-only";
+import { readFileSync as readFileSyncSemilla } from "node:fs";
+import pathSemilla from "node:path";
 import { createHash, randomUUID } from "node:crypto";
 import catalogoJson from "../../catalog/catalogo.json";
 import { leerFuente } from "@/domain/adaptadores";
@@ -312,4 +314,18 @@ export function reiniciarDemo() {
   const db = getDb();
   db.exec("DELETE FROM exportaciones; DELETE FROM confirmaciones; DELETE FROM documentos; DELETE FROM valores; DELETE FROM registros_no_vinculados; DELETE FROM procesos; DELETE FROM fuentes; DELETE FROM expedientes;");
   asegurarExpediente();
+}
+
+let semillaRevisada = false;
+/**
+ * Solo en la versión en línea (Vercel): cada instancia arranca con una base vacía en /tmp,
+ * así que se cargan las dos fuentes SINTÉTICAS de María para que el caso esté listo al abrir.
+ */
+export function sembrarDemoSiVacio() {
+  if (semillaRevisada || !process.env.VERCEL) return;
+  semillaRevisada = true;
+  if (fuentesImportadas().length > 0) return;
+  for (const nombre of ["sistema_antiguo_contribuyentes.csv", "exportacion_gestor_2025.json"]) {
+    importarArchivo(nombre, new Uint8Array(readFileSyncSemilla(pathSemilla.join(process.cwd(), "muestras", nombre))));
+  }
 }
