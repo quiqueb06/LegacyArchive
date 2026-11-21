@@ -41,7 +41,7 @@ export default async function InicioTramite({ params }: { params: Promise<{ id: 
             <p className="text-lg font-semibold">Cómo hacer este trámite</p>
             <p className="text-sm text-tinta-suave">Video de ejemplo pendiente de grabar. No es un video oficial.</p>
           </div>
-          <span className="absolute left-3 top-3 rounded-full bg-marca px-2.5 text-papel py-1 text-xs font-semibold">Ejemplo</span>
+          <span className="absolute left-3 top-3 rounded-full bg-marca px-2.5 text-black py-1 text-xs font-semibold">Ejemplo</span>
         </div>
         {info && (
           <ol className="mt-4 space-y-2">

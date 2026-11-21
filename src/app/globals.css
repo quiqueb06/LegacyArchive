@@ -3,28 +3,28 @@
 @theme {
   /* Identidad Lazô: negro, naranja, quemado y beige (kit de marca Lazô). */
   --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Public Sans Variable", system-ui, sans-serif;
-  --color-tinta: #d9c3ab;
-  --color-tinta-suave: #baa58e;
-  --color-papel: #000000;
-  --color-superficie: #17120f;
-  --color-superficie-alta: #221a15;
-  --color-linea: #3a2f27;
-  --color-borde: #665342;
+  --color-tinta: #1a120c;
+  --color-tinta-suave: #6b5643;
+  --color-papel: #f7efe6;
+  --color-superficie: #fffaf5;
+  --color-superficie-alta: #f1e4d6;
+  --color-linea: #e8d8c6;
+  --color-borde: #cbb59c;
   --color-marca: #f16001;
   --color-marca-oscura: #c10801;
-  --color-marca-clara: #2a1508;
-  --color-ok: #8fd6a4;
-  --color-ok-fondo: #0f2417;
-  --color-aviso: #f5b96a;
-  --color-aviso-fondo: #2a1c0a;
-  --color-alerta: #ff8b7b;
-  --color-alerta-fondo: #2e0f0c;
-  --color-info: #e9d7c3;
-  --color-info-fondo: #241c16;
+  --color-marca-clara: #fde8d8;
+  --color-ok: #1f7a3a;
+  --color-ok-fondo: #e5f3e8;
+  --color-aviso: #8a4b00;
+  --color-aviso-fondo: #fdefd9;
+  --color-alerta: #b3261e;
+  --color-alerta-fondo: #fde6e3;
+  --color-info: #5a4634;
+  --color-info-fondo: #f1e4d6;
   --ease-salida: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-html { background: var(--color-papel); color: var(--color-tinta); color-scheme: dark; }
+html { background: var(--color-papel); color: var(--color-tinta); color-scheme: light; }
 ::selection { background: var(--color-marca); color: #000; }
 body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; font-size: 17px; }
 
@@ -41,13 +41,13 @@ body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; font-
 .boton-secundario { background: transparent; color: var(--color-tinta); box-shadow: inset 0 0 0 1px var(--color-borde); }
 .boton-chico { padding: .375rem .75rem; min-height: 36px; font-size: .875rem; }
 
-:focus-visible { outline: 3px solid var(--color-tinta); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 3px solid #f16001; outline-offset: 2px; border-radius: 4px; }
 
-.tarjeta { background: var(--color-superficie); border: 1px solid var(--color-linea); border-radius: 1.5rem; }
-.campo { width: 100%; border: 1px solid var(--color-borde); border-radius: .75rem; padding: .5rem .75rem; background: #000; color: var(--color-tinta); min-height: 44px; }
+.tarjeta { background: var(--color-superficie); border: 1px solid var(--color-linea); border-radius: 1.5rem; box-shadow: 0 1px 2px rgba(26,18,12,.05); }
+.campo { width: 100%; border: 1px solid var(--color-borde); border-radius: .75rem; padding: .5rem .75rem; background: #fff; color: var(--color-tinta); min-height: 44px; }
 .campo::placeholder { color: #8a7866; }
 .degradado-lazo { background: linear-gradient(115deg, #d9c3ab 0%, #f16001 38%, #c10801 70%, #000 100%); }
-.texto-degradado { background: linear-gradient(100deg, #d9c3ab 0%, #f16001 55%, #c10801 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.texto-degradado { background: linear-gradient(100deg, #1a120c 0%, #c10801 55%, #f16001 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 .aparecer { animation: aparecer 220ms var(--ease-salida) both; }
 @keyframes aparecer { from { opacity: 0; transform: translateY(4px); } }

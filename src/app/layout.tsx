@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Prepara expedientes del Registro Mercantil y del IGSS reutilizando información, con datos sintéticos.",
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#000000" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7efe6" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

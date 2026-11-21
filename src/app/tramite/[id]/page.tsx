@@ -59,7 +59,7 @@ export default async function PaginaTramite({ params, searchParams }: { params: 
             {PASOS.map((p, i) => (
               <li key={p.id}>
                 <Link href={`?paso=${p.id}`} aria-current={paso === p.id ? "step" : undefined}
-                  className={`flex min-h-11 items-center justify-between gap-2 rounded-lg px-3 text-sm font-medium ${paso === p.id ? "bg-marca text-papel" : "hover:bg-superficie"}`}>
+                  className={`flex min-h-11 items-center justify-between gap-2 rounded-lg px-3 text-sm font-medium ${paso === p.id ? "bg-marca text-black" : "hover:bg-superficie"}`}>
                   <span>{i + 1}. {p.titulo}</span>
                   {conteo[p.id] ? <span className={`rounded-full px-2 text-xs ${paso === p.id ? "bg-papel/20" : "bg-linea/60"}`}>{conteo[p.id]}</span> : null}
                 </Link>
